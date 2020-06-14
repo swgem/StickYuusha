@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
 
-SUBDIRS += Application \
-    Graphical \
-    System
+SUBDIRS += Application
+SUBDIRS += Graphical
+SUBDIRS += System
