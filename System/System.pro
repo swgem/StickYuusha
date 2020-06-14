@@ -26,3 +26,7 @@ unix {
     target.path = /usr/lib
     INSTALLS += target
 }
+
+HEADERS += Tools/logger.h
+
+SOURCES += Tools/logger.cpp

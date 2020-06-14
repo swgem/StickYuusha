@@ -1,5 +1,6 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include "logger.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +14,8 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/MainWindow.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
+
+    const Tools::Logger *logger{Tools::Logger::getInstance()};
 
     return app.exec();
 }
