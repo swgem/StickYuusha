@@ -29,3 +29,8 @@ unix:!macx: LIBS += -L$$OUT_PWD/../Graphical/ -lGraphical
 
 INCLUDEPATH += $$PWD/../Graphical
 DEPENDPATH += $$PWD/../Graphical
+
+unix:!macx: LIBS += -L$$OUT_PWD/../System/ -lSystem
+
+INCLUDEPATH += $$PWD/../System/Tools
+DEPENDPATH += $$PWD/../System
