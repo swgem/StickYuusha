@@ -10,11 +10,8 @@ namespace Tools {
     private:
         Logger(QObject *parent = nullptr);
 
-        static Logger *instance;
-
     public:
         static const Logger* getInstance();
-
     };
 }
 
