@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(forms);
 
     QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/MainWindow.qml")));
+    engine.load(QUrl(QStringLiteral("qrc:/forms/MainWindow.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
 

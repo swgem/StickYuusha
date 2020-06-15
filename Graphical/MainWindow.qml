@@ -11,6 +11,6 @@ ApplicationWindow {
     StackView {
         id: stackView
         anchors.fill: parent
-        initialItem: Qt.resolvedUrl("qrc:/Home.qml")
+        initialItem: Qt.resolvedUrl("qrc:/forms/HomeForms/Home.qml")
     }
 }
