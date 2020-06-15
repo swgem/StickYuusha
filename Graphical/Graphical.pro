@@ -26,6 +26,7 @@ TRANSLATIONS += languages/$${TARGET}_en.ts
 TRANSLATIONS += languages/$${TARGET}_pt-br.ts
 
 RESOURCES += forms.qrc
+RESOURCES += translations.qrc
 
 unix {
     target.path = /usr/lib

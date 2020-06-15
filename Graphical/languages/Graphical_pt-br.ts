@@ -6,7 +6,7 @@
     <message>
         <location filename="../MainWindow.qml" line="9"/>
         <source>Stick Yuusha</source>
-        <translation type="unfinished">Herói da Vara</translation>
+        <translation>Herói da Vara</translation>
     </message>
 </context>
 </TS>

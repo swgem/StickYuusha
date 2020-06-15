@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/translations">
+        <file alias='Graphical_en.qm'>languages/Graphical_en.qm</file>
+        <file alias='Graphical_pt-br.qm'>languages/Graphical_pt-br.qm</file>
+    </qresource>
+</RCC>
