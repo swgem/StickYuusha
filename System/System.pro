@@ -6,8 +6,9 @@
 
 QT       -= gui
 
-TARGET = System
+TARGET = StickYuushaSystem
 TEMPLATE = lib
+VERSION = 1.0.0
 
 DEFINES += SYSTEM_LIBRARY
 
@@ -22,11 +23,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}
-
 HEADERS += Tools/logger.h
 
 SOURCES += Tools/logger.cpp
+
+#Target file directory
+DESTDIR=bin
+#Intermediate object files directory
+OBJECTS_DIR=generated_files
+#Intermediate moc files directory
+MOC_DIR=generated_files
+
+unix {
+    CONFIG += create_pc create_prl no_install_prl
+
+    target.path = /usr/lib/
+    headers.files = $$HEADERS
+    headers.path = /usr/include/stickyuusha/system
+
+    QMAKE_PKGCONFIG_NAME = $$TARGET
+    QMAKE_PKGCONFIG_PREFIX = $$INSTALLBASE
+    QMAKE_PKGCONFIG_LIBDIR = $$target.path
+    QMAKE_PKGCONFIG_INCDIR = $$headers.path
+    QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+    QMAKE_PKGCONFIG_VERSION = $$VERSION
+
+    INSTALLS += target headers
+}

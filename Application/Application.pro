@@ -25,12 +25,15 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-unix:!macx: LIBS += -L$$OUT_PWD/../Graphical/ -lGraphical
+#Target file directory
+DESTDIR=bin
+#Intermediate object files directory
+OBJECTS_DIR=generated_files
+#Intermediate moc files directory
+MOC_DIR=generated_files
 
-INCLUDEPATH += $$PWD/../Graphical
-DEPENDPATH += $$PWD/../Graphical
-
-unix:!macx: LIBS += -L$$OUT_PWD/../System/ -lSystem
-
-INCLUDEPATH += $$PWD/../System/Tools
-DEPENDPATH += $$PWD/../System
+unix {
+    CONFIG += link_pkgconfig
+    PKGCONFIG += StickYuushaSystem
+    PKGCONFIG += StickYuushaGraphical
+}

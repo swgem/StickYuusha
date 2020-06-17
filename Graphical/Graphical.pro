@@ -6,7 +6,7 @@
 
 QT       += qml quick multimedia
 
-TARGET = Graphical
+TARGET = StickYuushaGraphical
 TEMPLATE = lib
 
 DEFINES += GRAPHICAL_LIBRARY
@@ -28,8 +28,26 @@ TRANSLATIONS += languages/$${TARGET}_pt-br.ts
 RESOURCES += forms.qrc
 RESOURCES += translations.qrc
 
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}
+#Target file directory
+DESTDIR=bin
+#Intermediate object files directory
+OBJECTS_DIR=generated_files
+#Intermediate moc files directory
+MOC_DIR=generated_files
 
+unix {
+    CONFIG += create_pc create_prl no_install_prl
+
+    target.path = /usr/lib/
+    headers.files = $$HEADERS
+    headers.path = /usr/include/stickyuusha/system
+
+    QMAKE_PKGCONFIG_NAME = $$TARGET
+    QMAKE_PKGCONFIG_PREFIX = $$INSTALLBASE
+    QMAKE_PKGCONFIG_LIBDIR = $$target.path
+    QMAKE_PKGCONFIG_INCDIR = $$headers.path
+    QMAKE_PKGCONFIG_DESTDIR = pkgconfig
+    QMAKE_PKGCONFIG_VERSION = $$VERSION
+
+    INSTALLS += target headers
+}
